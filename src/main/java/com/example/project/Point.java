@@ -12,11 +12,30 @@ public class Point {
     // Returns distance between this Point object and another Point object
     public double distanceTo(Point other) {
       /* IMPLEMENT ME */
+      double distance = Math.pow((x - other.x), 2) + Math.pow((y - other.y), 2);
+      distance = Math.sqrt(distance);
+      return distance;
     }
   
     // Returns a string in the format: (x, y)
     public String pointInfo() {
       /* IMPLEMENT ME */
+      return "(" + x + ", " + y +")"; 
     }
-  }
-  
+
+    public int getX() {
+      return x;
+    }
+
+    public int getY() {
+      return y;
+    }
+
+    public void setX(int newX) {
+      x = newX;
+    }
+
+    public void setY(int newY) {
+      y = newY;
+    }
+}

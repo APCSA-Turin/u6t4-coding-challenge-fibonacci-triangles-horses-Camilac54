@@ -29,12 +29,25 @@ public class TriangleCollection {
     // PRECONDITION: numTriangles >= 2
     public TriangleCollection(int numTriangles, int startX, int startY) {
       /* IMPLEMENT ME */
+      collection = new Triangle[numTriangles];
+      Point p1 = new Point(-startX, 0);
+      Point p2 = new Point(0, startY);
+
+      for (int i = 0; i < numTriangles; i ++) {
+        Point p3 = new Point(startX - i, 0);
+        collection[i] = new Triangle (p1, p2, p3);
+      }
     }
   
     // Calculate and return the sum of the perimeters of
     // all Triangles in the collection
     public double totalPerimeter() {
       /* IMPLEMENT ME */
+      double total = 0;
+      for (Triangle one : collection) {
+        total += one.perimeter();
+      }
+      return total;
     }
   
     // adds increment to both the x and y coordinates of each of the
@@ -42,6 +55,7 @@ public class TriangleCollection {
     // ADD GETTER AND SETTER METHODS TO OTHER CLASSES AS NECESSARY
     public void shiftTriangles(int increment) {
       /* IMPLEMENT ME */
+      
     }
   
     // returns a String that contains each Triangle in the 
@@ -56,5 +70,3 @@ public class TriangleCollection {
       /* IMPLEMENT ME */
     }
   }
-  
-  

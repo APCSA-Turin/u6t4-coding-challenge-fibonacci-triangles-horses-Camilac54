@@ -3,6 +3,7 @@ package com.example.project;
 public class Fibonacci {
   // instance variable
   private int[] sequence;
+  private int seqLen;
 
   /** Constructor: sets sequence to an array containing the first seqLen numbers
       in a Fibonacci sequence. A Fibonacci sequence is formed by summing the
@@ -15,12 +16,21 @@ public class Fibonacci {
     */
   public Fibonacci(int seqLen) {
     /* implement me */
+    this.seqLen = seqLen;
+    sequence = new int[seqLen];
+    sequence[0] = 0;
+    sequence[1] = 1;
+
+    for (int i = 2; i < seqLen; i ++) {
+      sequence[i] = sequence [i - 1] + sequence [i - 2];
+    }
   }
 
   /** Getter method: returns a reference to the sequence array
     */
   public int[] getSequence() {
     /* implement me */
+    return sequence;
   }
 
   /** Returns the index in the array where a particular value, searchVal, is
@@ -30,6 +40,12 @@ public class Fibonacci {
    */
   public int getIndexOf(int searchVal) {
     /* implement me */
+    for (int i = 0; i < seqLen - 1; i ++) {
+      if (sequence[i] == searchVal) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   /** Assigns sequence to a new array that extends the current sequence by
@@ -41,6 +57,16 @@ public class Fibonacci {
    */
   public void extendBy(int howManyMore) {
     /* implement this method */
+    int[] newSequence = new int [seqLen + howManyMore];
+    for (int i = 0; i < seqLen - 1; i ++) {
+      newSequence [i] = sequence[i];
+    }
+
+    for (int j = seqLen; j < seqLen + howManyMore; j ++) {
+      newSequence[j] = newSequence [j - 1] + newSequence [j - 2];
+    }
+    sequence = newSequence;
+    seqLen += howManyMore;
   }
 
   /** Returns a string that represents the sequence array nicely formatted, for
@@ -50,5 +76,6 @@ public class Fibonacci {
    */
   public String fibonacciString() {
     /* implement this method using the utility class */
+    return ArrayPrinter.printableString(sequence);
   }
 }
