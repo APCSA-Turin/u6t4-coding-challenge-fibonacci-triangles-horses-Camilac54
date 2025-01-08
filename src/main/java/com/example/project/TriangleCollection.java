@@ -30,10 +30,9 @@ public class TriangleCollection {
     public TriangleCollection(int numTriangles, int startX, int startY) {
       /* IMPLEMENT ME */
       collection = new Triangle[numTriangles];
-      Point p1 = new Point(-startX, 0);
-      Point p2 = new Point(0, startY);
-
       for (int i = 0; i < numTriangles; i ++) {
+        Point p1 = new Point(-startX, 0);
+        Point p2 = new Point(0, startY);  
         Point p3 = new Point(startX - i, 0);
         collection[i] = new Triangle (p1, p2, p3);
       }
@@ -55,7 +54,13 @@ public class TriangleCollection {
     // ADD GETTER AND SETTER METHODS TO OTHER CLASSES AS NECESSARY
     public void shiftTriangles(int increment) {
       /* IMPLEMENT ME */
-      
+      for (Triangle one: collection) {
+        for (int  i = 0; i < 3; i ++) {
+          Point vtx = one.getVertices(i);
+          vtx.setX(vtx.getX() + increment);
+          vtx.setY(vtx.getY() + increment);
+        }
+      }
     }
   
     // returns a String that contains each Triangle in the 
@@ -68,5 +73,10 @@ public class TriangleCollection {
     //  [(1, 5), (5, 12), (7, 5)]"
     public String triangleCollectionInfo() {
       /* IMPLEMENT ME */
+      String str = "";
+      for (Triangle one : collection) {
+        str += (one.triangleInfo()) + "\n";
+      }
+      return str;
     }
   }

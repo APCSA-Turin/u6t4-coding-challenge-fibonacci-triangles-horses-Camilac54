@@ -23,6 +23,7 @@ public class Point {
       return "(" + x + ", " + y +")"; 
     }
 
+    // Added getters and setters
     public int getX() {
       return x;
     }

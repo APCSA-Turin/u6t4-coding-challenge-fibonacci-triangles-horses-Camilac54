@@ -33,6 +33,11 @@ public class Triangle {
       str += ", " + vertices[1].pointInfo();
       str += ", " + vertices[2].pointInfo() + "]";
       return str;
+    } 
+
+    // Added getter - precondition = idx must
+    // Between 0 and 2
+    public Point getVertices(int idx) {
+      return vertices[idx];
     }
   }
-  
