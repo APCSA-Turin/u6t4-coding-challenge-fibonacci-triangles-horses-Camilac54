@@ -56,9 +56,9 @@ public class TriangleCollection {
       /* IMPLEMENT ME */
       for (Triangle one: collection) {
         for (int  i = 0; i < 3; i ++) {
-          Point vtx = one.getVertices(i);
-          vtx.setX(vtx.getX() + increment);
-          vtx.setY(vtx.getY() + increment);
+          Point[] vtx = one.getVertices();
+          vtx[i].setX(vtx[i].getX() + increment);
+          vtx[i].setY(vtx[i].getY() + increment);
         }
       }
     }
@@ -79,4 +79,4 @@ public class TriangleCollection {
       }
       return str;
     }
-  }
+}

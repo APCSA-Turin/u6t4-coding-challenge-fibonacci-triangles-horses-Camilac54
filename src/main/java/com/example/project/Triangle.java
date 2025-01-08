@@ -35,9 +35,8 @@ public class Triangle {
       return str;
     } 
 
-    // Added getter - precondition = idx must
-    // Between 0 and 2
-    public Point getVertices(int idx) {
-      return vertices[idx];
+    // Added getter
+    public Point[] getVertices() {
+      return vertices;
     }
-  }
+}
